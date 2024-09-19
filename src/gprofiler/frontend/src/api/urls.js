@@ -27,6 +27,7 @@ export const DATA_URLS = {
     GET_SERVICES_DATA: `${API_PREFIX}/overview/services`,
     GET_SERVICES_LIST: `${API_PREFIX}/services`,
     GET_FLAMEGRAPH: `${API_PREFIX}/flamegraph`,
+    SCAN_FLAMEGRAPH: `${API_PREFIX}/flamegraph/scan`,
     DOWNLOAD_FLAMEGRAPH: `${API_PREFIX}/flamegraph/download_`,
     GET_FLAMEGRAPH_DATETIME_WITH_DATA: `${API_PREFIX}/flamegraph/datetime_with_data`,
     GET_METRICS: `${API_PREFIX}/metrics/summary`,

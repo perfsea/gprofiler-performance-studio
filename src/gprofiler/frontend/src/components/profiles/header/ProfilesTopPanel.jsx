@@ -32,6 +32,7 @@ import ProfilesSearch from './ProfilesSearch';
 import ProfilesTopPanelInfo from './ProfilesTopPanelInfo';
 import ResetViewButton from './ResetViewButton';
 import ViewModeSwitch from './viewModeSwitch/ViewModeSwitch';
+import PerfSeaOptimizations from './PerfSeaOptimizations';
 
 const PanelDivider = () => <Divider orientation='vertical' sx={{ borderColor: 'grey.dark', opacity: 0.1 }} flexItem />;
 
@@ -86,6 +87,8 @@ const ProfilesTopPanel = () => {
                                 <PanelDivider />
                                 <ViewModeSwitch />
                                 <FullScreenButton disabled={disabled} />
+                                <PanelDivider />
+                                <PerfSeaOptimizations />
                             </Flexbox>
                         </Flexbox>
                     </Box>

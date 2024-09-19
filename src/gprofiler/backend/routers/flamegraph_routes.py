@@ -17,6 +17,8 @@
 from datetime import datetime
 from io import BytesIO
 from logging import getLogger
+from typing import Dict
+import requests
 
 from backend.models.filters_models import RQLFilter
 from backend.models.flamegraph_models import FGDateTimeDataRange, FGParamsBaseModel, FGParamsModel, FlameGraph
@@ -26,6 +28,7 @@ from backend.utils.request_utils import flamegraph_request_params, get_flamegrap
 from dateutil.relativedelta import relativedelta
 from fastapi import APIRouter, Depends, Query
 from fastapi.responses import StreamingResponse
+from gprofiler_dev import config
 
 logger = getLogger(__name__)
 router = APIRouter()
@@ -62,6 +65,16 @@ def get_flamegraph(fg_params: FGParamsModel = Depends(flamegraph_request_params)
     json_file = BytesIO(response.content)
     return StreamingResponse(json_file, media_type="text/plain")
 
+@router.post("/scan", status_code=201)
+def get_flamegraph_svg(flame: Dict):
+    return requests.post(
+        "https://perfsea.com/scan",
+        json={"type": "json", "data": flame},
+        headers={
+            "CF-Access-Client-Id": config.PERFSEA_ACCESS_KEY_ID,
+            "CF-Access-Client-Secret": config.PERFSEA_SECRET_ACCESS_KEY,
+        },
+    ).json()
 
 @router.get(
     "/download_svg",

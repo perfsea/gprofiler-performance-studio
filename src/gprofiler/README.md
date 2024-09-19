@@ -30,6 +30,8 @@ To run the backend, you need to set the following environment variables:
 - `AWS_ACCESS_KEY_ID` - AWS credentials, if empty is taken from the metadata service
 - `AWS_SECRET_ACCESS_KEY`
 - `AWS_SESSION_TOKEN`
+- `PERFSEA_ACCESS_KEY_ID`
+- `PERFSEA_SECRET_ACCESS_KEY`
 
 Now you can run the backend:
 ```shell
