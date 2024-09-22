@@ -154,7 +154,7 @@ const PerfSeaOptimizations = ({ disabled = false }) => {
                         </defs>
                     </svg>
                 </SvgIcon>
-                3 Notes
+                {notes.length} Notes
             </Button>
             <Modal open={openModalId === 'Perf Sea'} onClose={onClose} variant='installationGIF'>
                 <Box sx={{ backgroundColor: COLORS.BG_GREY, p: '0rem 2rem 0rem 2rem', borderRadius: 2 }}>
